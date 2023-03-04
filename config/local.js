@@ -27,8 +27,8 @@ const stylePresets = [
     url: 'config/osm-carto.json',
   },
   {
-    id: 'protomaps-v2',
-    name: 'Protomaps V2',
+    id: 'protomaps-v2-debug',
+    name: 'Protomaps V2 Debug',
     type: 'maplibre-gl',
     renderer: 'maplibre-gl',
     url: 'config/protomaps-v2.json',
