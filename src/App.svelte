@@ -1,6 +1,7 @@
 <script>
   import mapboxgl from 'mapbox-gl';
   import maplibregl from 'maplibre-gl';
+  import * as pmtiles from 'pmtiles';
   import { onMount } from 'svelte';
   import {
     maps as mapsStore,
@@ -177,6 +178,7 @@
   maplibregl.setRTLTextPlugin(
     'https://unpkg.com/@mapbox/mapbox-gl-rtl-text@0.2.3/mapbox-gl-rtl-text.min.js'
   );
+  maplibregl.addProtocol('pmtiles', new pmtiles.Protocol().tile);
 </script>
 
 <svelte:head>
