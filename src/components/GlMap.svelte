@@ -108,6 +108,19 @@
       } else {
         html += `<p class="popup-no-properties">No properties</p>`;
       }
+
+      let id = BigInt(feature.id);
+      let type = (id >> BigInt(44)) & BigInt('0b11');
+      if (type !== 0n) {
+        let raw = id & (BigInt(2) ** BigInt(44) - BigInt(1));
+        var prefix = 'node';
+        if (type === 2n) {
+          prefix = 'way';
+        } else if (type === 3n) {
+          prefix = 'relation';
+        }
+        html += `<a target="_blank" href="https://openstreetmap.org/${prefix}/${raw}">${prefix}/${raw}</a>`;
+      }
     }
     html += '</div>';
     return html;
